@@ -4,13 +4,7 @@ Display the latest stories from [Lobste.rs](https://lobste.rs) on your TRMNL e-i
 
 Lobsters is a computing-focused community centered around link aggregation and discussion, maintained by a culture that values thoughtful, on-topic conversation.
 
-## Features
-
-* Choose between **Hottest** (most popular) or **Newest** (latest) stories
-* Shows story title, points, and comment count
-* Topic tags for each story
-* QR codes for quick access to discussions on your phone
-* Clean, e-ink optimized layout
+<img width="1660" height="998" alt="image" src="https://github.com/user-attachments/assets/14ddd243-29da-4336-b8eb-995071f6c317" />
 
 ## Setup
 
@@ -34,11 +28,6 @@ Choose your preferred feed type:
 | Quadrant | `quadrant.liquid` | Quarter screen |
 
 ## Local Development
-
-Create your config file:
-```bash
-cp trmnlp.yml.example .trmnlp.yml
-```
 
 Edit `.trmnlp.yml` and set your preferences:
 ```yaml
