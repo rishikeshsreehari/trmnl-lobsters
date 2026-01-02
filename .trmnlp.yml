@@ -1,0 +1,9 @@
+---
+watch:
+  - .trmnlp.yml
+  - src
+custom_fields:
+  feed_type: hottest
+  max_stories: 100
+variables: {}
+trmnl: {}

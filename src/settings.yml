@@ -1,0 +1,30 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+polling_url: https://lobste.rs/{{ feed_type }}.json
+polling_headers: ''
+polling_body: ''
+id: 212869
+custom_fields:
+- keyname: author_bio
+  field_type: author_bio
+  name: Lobsters
+  description: Stay updated with the tech community's favorite stories from <a href="https://lobste.rs">Lobste.rs</a>. Choose between hottest or newest posts, and scan QR codes to read full discussions on your phone.
+  help_text: For bug reports or queries, <a href="mailto:hello@rishikeshs.com">email me</a>
+  category: programming,news
+  github_url: https://github.com/rishikeshshreehari/trmnl-lobsters
+  email_address: hello@rishikeshs.com
+  learn_more_url: https://rishikeshs.com
+- keyname: feed_type
+  field_type: select
+  name: Feed Type
+  description: "<strong>Hottest:</strong> Most popular and actively discussed stories<br><strong>Newest:</strong> Latest submissions"
+  default: hottest
+  options:
+  - Hottest
+  - Newest
+name: Lobsters
+refresh_interval: 120
