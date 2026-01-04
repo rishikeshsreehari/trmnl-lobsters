@@ -45,6 +45,6 @@
   </svg>
   <span class="title">Lobste.rs</span>
   <span class="instance">
-    Updated at {{ "now" | date: '%s' | plus: trmnl.user.utc_offset | date: "%H:%M" }}
+    {{ trmnl.plugin_settings.custom_fields_values.feed_type | capitalize }}  at {{ "now" | date: '%s' | plus: trmnl.user.utc_offset | date: "%H:%M" }}
   </span>
 </div>

@@ -4,7 +4,7 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
-polling_url: https://lobste.rs/{{ feed_type }}.json
+polling_url: "{% if feed_type == \"tag\" %}\r\nhttps://lobste.rs/t/{{ tag_word }}.json\r\n{% else %}\r\nhttps://lobste.rs/{{ feed_type }}.json\r\n{%endif %}"
 polling_headers: ''
 polling_body: ''
 id: 212869
@@ -26,5 +26,11 @@ custom_fields:
   options:
   - Hottest
   - Newest
-name: Lobsters
+  - Tag
+- keyname: tag_word
+  field_type: string
+  name: Tag Word
+  description: Stories tagged as <strong>programming</strong> Use when every tag or no specific tag applies
+  default: programming
+name: Lobsters Local
 refresh_interval: 120
