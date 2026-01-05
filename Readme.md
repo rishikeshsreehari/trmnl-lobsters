@@ -6,6 +6,13 @@ Lobsters is a computing-focused community centered around link aggregation and d
 
 <img width="1660" height="998" alt="image" src="https://github.com/user-attachments/assets/14ddd243-29da-4336-b8eb-995071f6c317" />
 
+## Features
+
+- **Multiple Feed Types**: Browse hottest stories, newest submissions, or filter by specific tags
+- **QR Codes**: Scan to read full discussions on your phone
+- **Responsive Layouts**: Optimized views for full, half, and quadrant screen sizes
+- **Auto-refresh**: Configurable polling interval to stay up-to-date
+
 ## Setup
 
 ### 1. Install the Plugin
@@ -15,8 +22,12 @@ Install from the [TRMNL Plugin Directory](https://usetrmnl.com/recipes) or add m
 ### 2. Configure
 
 Choose your preferred feed type:
+
 - **Hottest**: Most popular and actively discussed stories
 - **Newest**: Latest submissions to Lobsters
+- **Tag**: Filter by specific topic (e.g., programming, security, rust, python)
+
+When selecting "Tag", enter your preferred topic. Browse available tags at [lobste.rs/tags](https://lobste.rs/tags).
 
 ## Views
 
@@ -32,7 +43,8 @@ Choose your preferred feed type:
 Edit `.trmnlp.yml` and set your preferences:
 ```yaml
 custom_fields:
-  feed_type: "hottest"
+  feed_type: "hottest"  # or "newest" or "tag"
+  tag_word: "programming"  # required when feed_type is "tag"
 ```
 
 Run the development server:
@@ -47,6 +59,7 @@ docker run \
 
 * [Lobste.rs](https://lobste.rs) - The Lobsters community
 * [Lobsters About Page](https://lobste.rs/about) - Learn more about the community
+* [Available Tags](https://lobste.rs/tags) - Browse all topic tags
 
 ## Support
 
