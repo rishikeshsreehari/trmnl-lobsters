@@ -1,5 +1,5 @@
 <div class="layout">
-  <div class="columns" data-overflow-max-cols="2">
+  <div class="columns" data-overflow-max-cols="1">
     <div class="column">
       {% assign max = max_stories | default: 100 %}
       {% assign count = 0 %}
@@ -25,6 +25,7 @@
             <div class="ml--auto pl--small">
               {{ story.short_id_url | qr_code: 1 }}
             </div>
+            
           </div>
         {% endif %}
       {% endfor %}
@@ -45,6 +46,10 @@
   </svg>
   <span class="title">Lobste.rs</span>
   <span class="instance">
-    {{ trmnl.plugin_settings.custom_fields_values.feed_type | capitalize }}  at {{ "now" | date: '%s' | plus: trmnl.user.utc_offset | date: "%H:%M" }}
+    {% if trmnl.plugin_settings.custom_fields_values.feed_type == "tag" %}
+      #{{ trmnl.plugin_settings.custom_fields_values.tag_word }} • {{ "now" | date: '%s' | plus: trmnl.user.utc_offset | date: "%H:%M" }}
+    {% else %}
+      {{ trmnl.plugin_settings.custom_fields_values.feed_type | capitalize }} Stories • {{ "now" | date: '%s' | plus: trmnl.user.utc_offset | date: "%H:%M" }}
+    {% endif %}
   </span>
 </div>

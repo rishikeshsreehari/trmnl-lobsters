@@ -4,7 +4,7 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
-polling_url: "{% if feed_type == \"tag\" %}\r\nhttps://lobste.rs/t/{{ tag_word }}.json\r\n{% else %}\r\nhttps://lobste.rs/{{ feed_type }}.json\r\n{%endif %}"
+polling_url: "{% if feed_type == 'tag' %}https://lobste.rs/t/{{ tag_word }}.json{% else %}https://lobste.rs/{{ feed_type }}.json{% endif %}"
 polling_headers: ''
 polling_body: ''
 id: 212869
@@ -21,16 +21,25 @@ custom_fields:
 - keyname: feed_type
   field_type: select
   name: Feed Type
-  description: "<strong>Hottest:</strong> Most popular and actively discussed stories<br><strong>Newest:</strong> Latest submissions"
+  description: "<strong>Hottest:</strong> Most popular and actively discussed stories<br><strong>Newest:</strong> Latest submissions<br><strong>Tag:</strong> Filter by specific topic tag"
   default: hottest
   options:
   - Hottest
   - Newest
-  - Tag
+  - tag
+  conditional_validation:
+  - when: hottest
+    hidden:
+    - tag_word
+  - when: newest
+    hidden:
+    - tag_word
 - keyname: tag_word
   field_type: string
   name: Tag Word
-  description: Stories tagged as <strong>programming</strong> Use when every tag or no specific tag applies
-  default: programming
-name: Lobsters Local
-refresh_interval: 120
+  description: Enter a topic tag to filter stories (e.g., <strong>programming</strong>, <strong>security</strong>, <strong>python</strong>, <strong>devops</strong>)
+  help_text: Browse available tags at <a href="https://lobste.rs/tags" target="_blank">lobste.rs/tags</a>
+  placeholder: programming
+  optional: true
+name: Lobsters
+refresh_interval: 60
