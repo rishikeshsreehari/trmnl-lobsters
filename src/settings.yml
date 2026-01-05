@@ -4,7 +4,7 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
-polling_url: https://lobste.rs/{{ feed_type }}.json
+polling_url: "{% if feed_type == \"tag\" %}\r\nhttps://lobste.rs/t/{{ tag_word }}.json\r\n{% else %}\r\nhttps://lobste.rs/{{ feed_type }}.json\r\n{%endif %}"
 polling_headers: ''
 polling_body: ''
 id: 212869
@@ -15,7 +15,7 @@ custom_fields:
   description: Stay updated with the tech community's favorite stories from <a href="https://lobste.rs">Lobste.rs</a>. Choose between hottest or newest posts, and scan QR codes to read full discussions on your phone.
   help_text: For bug reports or queries, <a href="mailto:hello@rishikeshs.com">email me</a>
   category: programming,news
-  github_url: https://github.com/rishikeshshreehari/trmnl-lobsters
+  github_url: https://github.com/rishikeshsreehari/trmnl-lobsters
   email_address: hello@rishikeshs.com
   learn_more_url: https://rishikeshs.com
 - keyname: feed_type
@@ -26,5 +26,11 @@ custom_fields:
   options:
   - Hottest
   - Newest
-name: Lobsters
+  - Tag
+- keyname: tag_word
+  field_type: string
+  name: Tag Word
+  description: Stories tagged as <strong>programming</strong> Use when every tag or no specific tag applies
+  default: programming
+name: Lobsters Local
 refresh_interval: 120
